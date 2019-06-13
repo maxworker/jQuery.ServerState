@@ -1,0 +1,7 @@
+*.zip
+tmp/
+upload/
+not/
+node_modules/
+backup/
+dependencies/

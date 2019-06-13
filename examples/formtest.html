@@ -1,0 +1,86 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery server state</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+				<form id="jsonForm" name="form">
+					<ol class="example">
+						<li>
+							<h4>Text</h4>
+							<input name="text" type="text" value="" />
+						</li>
+						<li>
+							<h4>Textarea</h4>
+							<textarea name="textarea"></textarea>
+						</li>
+						<li>
+							<h4>Radio Group</h4>
+							<span class="group">
+								<label class="radio"><input name="radio" type="radio" value="1" />1</label>
+								<label class="radio"><input name="radio" type="radio" value="2" />2</label>
+								<label class="radio"><input name="radio" type="radio" value="3" />3</label>
+							</span>
+						</li>
+						<li>
+							<h4>Checkbox Group</h4>
+							<span class="group">
+								<label class="checkbox"><input name="checkbox" type="checkbox" value="1" />1</label>
+								<label class="checkbox"><input name="checkbox" type="checkbox" value="2" />2</label>
+								<label class="checkbox"><input name="checkbox" type="checkbox" value="3" />3</label>
+							</span>
+						</li>
+						<li>
+							<h4>Select List</h4>
+							<select name="select">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
+						</li>
+						<li>
+							<h4>Multiple Select List</h4>
+							<select name="selectMultiple[]" multiple="multiple">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
+						</li>
+					</ol>
+                                        <pre><code>
+                                        <div id="result"></div>
+                                        </code></pre>
+
+				</form>
+
+<hr>
+<input id="mSubmit" type="button" value="Send" /><br/>
+<input id="mLoad" type="button" value="Load" /><br/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../dist/serverstate.min.js"></script>
+
+<script>
++function($) {
+  $(function () {
+
+    $("#jsonForm").stateInit("test.php");
+
+    $("#mSubmit").on("click", function(e){
+       $("#jsonForm").stateSubmit();
+    });
+
+    $("#mLoad").on("click", function(e){
+       $("#jsonForm").stateLoad({},{"url":"testload.php"});
+    });
+
+
+  });
+}(jQuery);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery server state</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" />
+</head>
+<body>
+
+<form id="jsonForm" method="post">
+    Message: <input type="text" name="message" value="test" required=""/>
+    <div id="result"></div>
+
+    <br/>
+    <input id="mLoad" type="button" value="Load" /><br/>
+    <input id="mSaveLoad" type="button" value="Json Submit" /><br/>
+    <input id="mSave" type="button" value="Json Save" /><br/>
+
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../dist/serverstate.min.js"></script>
+
+<script>
+
++function($) {
+  $(function () {
+
+    $("#jsonForm").on('submit', function(event){
+        event.preventDefault();
+    });
+
+    $("#mSaveLoad").on("click", function(e){
+       $("#jsonForm").stateJsonSubmit({id:777},{ url:"jsontest.php", success:function(data){console.log("Form Saved");} });
+    });
+
+    $("#mLoad").on("click", function(e){
+       $("#jsonForm").stateLoad({id:777},{url:"jsontest.php"});
+    });
+
+    $("#mSave").on("click", function(e){
+       $("#jsonForm").stateJsonSave({id:777},{url:"jsontest.php", validationCallback:function(){console.log("Form not valid");}, success:function(){console.log("Form Saved");} });
+    });
+
+  });
+}(jQuery);
+</script>
+
+</body>
+</html>
