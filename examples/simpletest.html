@@ -7,14 +7,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" />
 </head>
 <body>
-
+<div class="container">
+<h3>Simple Test</h3>
+<p>
+Submit the form to the server and get result into the "result" div.
+</p>
 <form id="jsonForm" method="post" action="simpletest.php">
-    Message: <input type="text" name="message" value="test" required=""/>
+    <div class="form-group">
+       <label for="message" class="mb-none"><strong>Message</strong></label>
+       <input class="form-control" type="text" id="message" name="message" value="test" required=""/>
+    </div>
+
     <div id="result"></div>
     <br/>
-    <input id="mSubmit" type="button" value="Send" /><br/>
+    <input class="btn btn-success" id="mSubmit" type="button" value="Send"/><br/>
 </form>
-
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="../dist/serverstate.min.js"></script>
 

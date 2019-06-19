@@ -7,20 +7,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" />
 </head>
 <body>
-
+<div class="container">
+<h3>Json Test</h3>
 <form id="jsonForm" method="post">
-    Message: <input type="text" name="message" value="test" required=""/>
+
+    <div class="form-group">
+       <label for="message" class="mb-none"><strong>Message</strong></label>
+       <input class="form-control" type="text" id="message" name="message" value="test" required=""/>
+    </div>
+
     <div id="result"></div>
 
     <br/>
-    <input id="mLoad" type="button" value="Load" /><br/>
-    <input id="mSaveLoad" type="button" value="Json Submit" /><br/>
-    <input id="mSave" type="button" value="Json Save" /><br/>
+    <input class="btn btn-primary" id="mLoad" type="button" value="Load" />
+    <input class="btn btn-success" id="mSaveLoad" type="button" value="Json Submit" />
+    <input class="btn btn-warning" id="mSave" type="button" value="Json Save" />
 
 </form>
-
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="../dist/serverstate.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 
 <script>
 
